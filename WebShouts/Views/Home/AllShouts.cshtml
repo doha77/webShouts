@@ -1,0 +1,48 @@
+﻿@model IList<WebShouts.Models.UserWebShoutsVM>
+
+@{
+    ViewData["Title"] = "AllShouts";
+    var applicationUserId = Convert.ToInt32(ViewBag.applicationUserId);
+}
+
+
+<div class="row" style="margin-top:50px">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4">
+            <div class="message-box">
+                <label>
+
+                    <a href="/home/index?id=@item.ApplicationUserId"> @item.UserName</a>
+
+                    @if (item.ApplicationUserId != applicationUserId)
+                    {
+                        if (!item.HasFollowed)
+                        {
+                            <a href="/home/FollowStranger?followingUserId=@item.ApplicationUserId" class="btn btn-sm btn-primary">
+                                <i class="fa fa-user-plus"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn btn-sm btn-primary" disabled="disabled">
+                                <i class="fa fa-user-plus"></i>
+                            </button>
+                        }
+                    }
+
+
+                </label>
+                <div class="shout-message">
+                    <strong>
+                        Un message
+                    </strong> @item.Content
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+

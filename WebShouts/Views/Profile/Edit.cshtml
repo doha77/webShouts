@@ -1,0 +1,25 @@
+﻿@model WebShouts.Entities.WebShout
+
+@{
+    ViewData["Title"] = "Éditer";
+}
+
+
+<h4>Modifier le cri</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="WebShoutId" />
+            <input type="hidden" asp-for="ApplicationUserId" />
+            <div class="form-group">
+                <label class="control-label">teneur</label>
+                <input maxlength="140" asp-for="Content" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

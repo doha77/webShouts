@@ -1,0 +1,94 @@
+﻿
+
+@model WebShouts.Models.LogOnVM
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .account-container {
+            position: absolute;
+            top: 25%;
+            left: 10%;
+        }
+        .pb-10 {
+            padding-bottom:10px
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5 account-container" >
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <ul class="nav nav-pills">
+                    <li style="width:50%; text-align:center" class="active"><a data-toggle="pill" href="#login">Connexion</a></li>
+                    <li style="width:45%; text-align:center"><a data-toggle="pill" href="#signup">S'inscrire</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="login" class="tab-pane fade in active">
+                        <div class="card card-signin my-2">
+                            <div class="card-body">
+                                <form asp-controller="User" asp-action="Account" class="form-signin">
+                                    <div class="form-label-group  pb-10">
+                                        <input asp-for="UserEmail" type="text" id="inputEmail" class="form-control" placeholder="adresse e-mail" autofocus>
+
+                                    </div>
+
+                                    <div class="form-label-group  pb-10">
+                                        <input asp-for="UserPassword" type="password" id="inputPassword" class="form-control" placeholder="Mot de passe">
+
+                                    </div>
+
+                                    <button class="btn btn-primary btn-block text-uppercase" type="submit">Connexion</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="signup" class="tab-pane fade">
+                        <div class="card card-signin my-2">
+                            <div class="card-body">
+                                <form asp-controller="User" asp-action="Signup" class="form-signup">
+                                    <div class="form-label-group pb-10">
+                                        <input name="UserName" type="text" id="inputUserName" class="form-control" placeholder="Nom d'utilisateur" autofocus>
+                                    </div>
+
+                                    <div class="form-label-group pb-10">
+                                        <input name="UserEmail" type="text" id="inputEmail" class="form-control" placeholder="Adresse e-mail">
+                                    </div>
+
+                                    <div class="form-label-group pb-10">
+                                        <input name="UserPassword" type="password" id="inputPassword" class="form-control" placeholder="Mot de passe">
+                                    </div>
+
+                                    <button class="btn btn-primary btn-block text-uppercase" type="submit">
+                                        S'inscrire
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
+
+

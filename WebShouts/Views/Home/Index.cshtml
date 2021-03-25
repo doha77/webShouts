@@ -1,0 +1,26 @@
+﻿
+@model IList<WebShouts.Models.UserWebShoutsVM>
+
+@{
+    ViewData["Title"] = "AllShouts";
+}
+
+<div class="row" style="margin-top:50px">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4">
+            <div class="message-box">
+                <label>
+                    <a href="#"> @item.UserName</a>
+                </label>
+                <div class="shout-message">
+                    <strong>Un message</strong> @item.Content
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+

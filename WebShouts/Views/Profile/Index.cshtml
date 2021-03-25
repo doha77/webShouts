@@ -1,0 +1,30 @@
+﻿@model IList<WebShouts.Models.UserWebShoutsVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a href="/Profile/Create">Créer un cri</a>
+<div class="row" style="margin-top:50px">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-10 col-md-10 col-sm-10">
+          
+            <div class="message-box">
+
+                <div class="shout-message">
+                    <b>Message:</b> @item.Content
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2">
+            <label>
+                @Html.ActionLink("Éditer", "Edit", "Profile", new { id = item.WebShoutId }, null)
+                @Html.ActionLink("Effacer", "Delete", "Profile", new { id = item.WebShoutId }, null)
+            </label>
+        </div>
+            }
+
+        </div>
+
